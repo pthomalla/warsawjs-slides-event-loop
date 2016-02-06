@@ -1,0 +1,10 @@
+.slide > div > h3 {
+    font-size: 50px;
+    line-height: 70px;
+}
+
+.slide.shout > div > h3 {
+    color: #f7302f;
+    font-size: 120px;
+    line-height: 140px;
+}

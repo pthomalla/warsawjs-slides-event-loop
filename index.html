@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WarsawJS Slides: Support</title>
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="themes/warsawjs/styles/ribbon-theme.css">
+    <link rel="stylesheet" href="themes/warsawjs/styles/warsawjs-theme.css">
+    <link rel="stylesheet" href="themes/warsawjs/styles/custom.css">
+    <link rel="stylesheet" href="vendor/syntaxhighlighter/code.css">
+    <link rel="stylesheet" href="vendor/pthomalla/theme.css">
+    <script type="text/javascript" src="vendor/syntaxhighlighter/code.js"></script>
+    <script type="text/javascript" src="vendor/syntaxhighlighter/source_code.js"></script>
+</head>
+<body class="list">
+    <header class="caption">
+        <h1>WarsawJS Slides: Model współbieżności i Event Loop</h1>
+        <p>We talk about JavaScript. Each month in Warsaw, Poland.</p>
+    </header>
+    <section class="slide front-page">
+        <div>
+            <div class="logo">
+                <!-- Logo WarsawJS -->
+                <img src="pictures/logo-light.png"/>
+            </div>
+            <div class="details">
+                <!-- 1. Avatar -->
+                <img src="pictures/speaker.jpg" alt="Speaker">
+                <!-- 2. Speaker -->
+                <h2>Paweł Thomalla</h2>
+                <!-- 3. Presentation title -->
+                <h2><strong>"Model współbieżności i Event Loop"</strong></h2>
+                <!-- 4. Presentation date -->
+                <h2>2016-02-10</h2>
+                <!-- 5. Contact the speaker -->
+                <h2><a href="mailto:pawel.thomalla@gmail.com">pawel.thomalla@gmail.com</a></h2>
+            </div>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Czym jest Współbieżność?</h2>
+            <h3>Współbieżność polega na jednoczesnym wykonywaniu co najmniej dwóch czynności.</h3>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Wątek (thread)</h2>
+            <h3>...to sekwencja działań, która może wykonywać się równolegle z innymi sekwencjami działań w kontekście danego procesu (programu).</h3>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Jednowątkowość (single-threaded)</h2>
+            <h3>Konwencjonalny sposób realizacji procesu, w którym implementuje się tylko jeden wątek przetwarzania.</h3>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Synchronizacja nieblokująca (non-blocking algorithm)</h2>
+            <h3>Algorytm nazwany jest nieblokującym, jeżeli niewykonanie lub zawieszenie dowolnego wątku nie może spowodować awarii lub zawieszenia w innym wątku.</h3>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h3>Programowanie Asynchroniczne (asynchronous)</h3>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2 style="text-align: center">Concurrency</h2>
+            <center style="height:80%">
+                <img src="pictures/1024px-Dining_philosophers.png" alt="opis" style="height:80%;">
+            </center>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Wywołanie zwrotne (callback)</h2>
+            <div class="syntaxhighlighter" id="div_callback">
+                <script>
+                    var code = function_body_to_string(callback_example);
+                    div_callback.appendChild(format_code(code, [1, 7]));
+                </script>
+            </div>
+        </div>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_setTimeout">
+            <script>
+                var code = function_body_to_string(setTimeout_example);
+                div_setTimeout.appendChild(format_code(code, [1, 3, 7, 9]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <iframe src="http://latentflip.com/loupe/?code=CiAgZnVuY3Rpb24gbG9uZ0NvbXB1dGF0aW9uKCl7CiAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgNTsgaSsrKTsKICB9CgogIHNldFRpbWVvdXQoZnVuY3Rpb24gKCkgewogICAgICBjb25zb2xlLmxvZygndGltZSAxMDAwJyk7CiAgfSwgMTAwMCk7CiAKICBsb25nQ29tcHV0YXRpb24oKTsKIAogIHNldFRpbWVvdXQoZnVuY3Rpb24gKCkgewogICAgICBjb25zb2xlLmxvZygndGltZSAwJyk7CiAgfSwgMCk7CiAKICBsb25nQ29tcHV0YXRpb24oKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" width="100%" height="100%" style="overflow:auto"></iframe>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_example1">
+            <script>
+                var code = function_body_to_string(example1);
+                div_example1.appendChild(format_code(code, [2, 4, 9, 11]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <iframe src="http://latentflip.com/loupe/?code=ICAKICAKICAKICAKICAKICAkLm9uKCdidXR0b24nLCAnY2xpY2snLCBmdW5jdGlvbiAoKSB7CiAgICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gKCkgewogICAgICAgIGNvbnNvbGUubG9nKCdCdXR0b24gY2xpY2tlZCEnKTsKICAgICAgfSwgMjAwMCk7CiAgfSk7CiAKICBjb25zb2xlLmxvZygnSGkhJyk7CiAKICBzZXRUaW1lb3V0KGZ1bmN0aW9uICgpIHsKICAgICAgY29uc29sZS5sb2coJ0NsaWNrIHRoZSBidXR0b24hJyk7CiAgfSwgNTAwMCk7CiAKICBjb25zb2xlLmxvZygnV2VsY29tZSB0byBsb3VwZS4nKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" width="100%" height="100%" style="overflow:auto"></iframe>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_example2">
+            <script>
+                var code = function_body_to_string(example2);
+                div_example2.appendChild(format_code(code, [2, 4]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <iframe src="http://latentflip.com/loupe/?code=ICAKICAKICAKICBmb3IgKHZhciBpID0gMDsgaSA8IDU7IGkrKykgewogICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uICgpIHsKICAgICAgICAgIGNvbnNvbGUubG9nKCdoaScpOwogICAgICB9LCAxMDAwKTsKICB9!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" width="100%" height="100%" style="overflow:auto"></iframe>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_example3">
+            <script>
+                var code = function_body_to_string(example3);
+                div_example3.appendChild(format_code(code, [3, 15]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <iframe src="http://latentflip.com/loupe/?code=ICAKICAKICAKICAKICB2YXIgYXJyYXkgPSBbMSwgMiwgMywgNCwgNV07CiAKICBhcnJheS5mb3JFYWNoKGZ1bmN0aW9uIChpKSB7CiAgICAgIGNvbnNvbGUubG9nKGkpOwogIH0pOwogCiAgZnVuY3Rpb24gcGFydGlhbEZvckVhY2gobGlzdCwgZnVuKSB7CiAgICAgIGxpc3QuZm9yRWFjaChmdW5jdGlvbiAoaSkgewogICAgICAgICAgc2V0VGltZW91dChmdW5jdGlvbiAoKSB7CiAgICAgICAgICAgICAgZnVuKGkpOwogICAgICAgICAgfSwgMCk7CiAgICAgIH0pOwogIH0KIAogIHBhcnRpYWxGb3JFYWNoKGFycmF5LCBmdW5jdGlvbiAoaSkgewogICAgICBjb25zb2xlLmxvZyhpKTsKICB9KTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" width="100%" height="100%" style="overflow:auto"></iframe>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_example4_util_1">
+            <h2>Helper: sleep</h2>
+            <script>
+                var code = function_body_to_string(example4_util_1);
+                div_example4_util_1.appendChild(format_code(code, [1, 6]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_example4_util_2">
+            <h2>Helper: work</h2>
+            <script>
+                var code = function_body_to_string(example4_util_2);
+                div_example4_util_2.appendChild(format_code(code, [1, 6]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_example4">
+            <script>
+                var code = function_body_to_string(example4);
+                div_example4.appendChild(format_code(code, [2]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <iframe src="http://latentflip.com/loupe/?code=ICAKICAKICBmdW5jdGlvbiBzbGVlcCh2YWx1ZSl7CiAgICAgIGZvcig7dmFsdWU%2BMDt2YWx1ZS0tKTsKICB9CiAgCiAgZnVuY3Rpb24gd29yayh4KSB7CiAgICAgIGNvbnNvbGUubG9nKCd3b3JrOiAnICsgeCk7CiAgICAgIHNsZWVwKDUpOwogIH0KICAKICBmb3IgKHZhciBpID0gMDsgaSA8IDM7IGkrKykgewogICAgICB3b3JrKGkpOwogIH0%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" width="100%" height="100%" style="overflow:auto"></iframe>
+    </section>
+    <section class="slide">
+        <div class="syntaxhighlighter" id="div_example5">
+            <script>
+                var code = function_body_to_string(example5);
+                div_example5.appendChild(format_code(code, [5, 11]));
+            </script>
+        </div>
+    </section>
+    <section class="slide">
+        <iframe src="http://latentflip.com/loupe/?code=ICAKICAKICBmdW5jdGlvbiBzbGVlcCh2YWx1ZSl7CiAgICAgIGZvcig7dmFsdWU%2BMDt2YWx1ZS0tKTsKICB9CiAgCiAgZnVuY3Rpb24gd29yayh4KSB7CiAgICAgIGNvbnNvbGUubG9nKCd3b3JrOiAnICsgeCk7CiAgICAgIHNsZWVwKDUpOwogIH0KICAKICBmdW5jdGlvbiBteUZvcihpLCB2YWx1ZSkgewogICAgICBpZiAoaSA8IHZhbHVlKSB7CiAgICAgICAgICB3b3JrKGkpOwogCiAgICAgICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uICgpIHsKICAgICAgICAgICAgICBteUZvcihpICsgMSwgdmFsdWUpOwogICAgICAgICAgfSwgMCk7CiAgICAgIH0KICB9CiAKICBteUZvcigwLCAxMCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D" width="100%" height="100%" style="overflow:auto"></iframe>
+    </section>
+    <section class="slide cover">
+        <div>
+            <img src="pictures/logo.png">
+        </div>
+    </section>
+
+    <p class="badge"><a href="https://github.com/pthomalla/warsawjs-slides-event-loop">Fork me on Github</a></p>
+    <p class="badge badge-left"><a href="#">Fullscreen</a></p>
+    <div class="progress">
+        <div></div>
+    </div>
+
+    <script src="vendor/gamepad/gamepad.js"></script>
+    <script src="vendor/shower/shower.js"></script>
+    <script src="vendor/shower/shower.gamepad.js"></script>
+    <script src="themes/warsawjs/scripts/fullscreen.js"></script>
+</body>
+</html>
